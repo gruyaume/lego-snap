@@ -6,6 +6,8 @@ license: Apache-2.0
 description: |
   LEGO is a Let's Encrypt client and ACME library written in Go.
 
+  The LEGO snap makes it easy to install and use LEGO on any Linux distribution that supports snaps.
+
   ## Usage
 
   ```bash
