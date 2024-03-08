@@ -8,23 +8,13 @@ description: |
 
   The LEGO snap makes it easy to install and use LEGO on any Linux distribution that supports snaps.
 
-  ## Usage
+  Usage:
 
-  ```bash
-  sudo snap install lego
-  sudo snap connect lego:dot-lego
-  lego \
-    --email="you@example.com" \
-    --domains="example.com" \
-    --path=/home/$USER/.lego \
-    --server=https://acme-staging-v02.api.letsencrypt.org/directory \
-    --http \
-    --http.port 8080 \
-    run
-  ```
+  `sudo snap install lego`
 
-  Note: The LEGO snap can only write to the following directory:
-  - `/home/$USER/.lego`
+  `sudo snap connect lego:dot-lego`
+  
+  `sudo lego --email="you@example.com" --domains="example.com" --server=https://acme-staging-v02.api.letsencrypt.org/directory --http --http.port :8080 run`
 
 source-code: https://github.com/go-acme/lego
 issues: https://github.com/gruyaume/lego-snap/issues
@@ -32,17 +22,12 @@ issues: https://github.com/gruyaume/lego-snap/issues
 grade: stable
 confinement: strict
 
-plugs:
-  dot-lego:
-    interface: personal-files
-    write:
-      - $HOME/.lego
-
 apps:
   lego:
     command: bin/lego
+    environment:
+      LEGO_PATH: /var/snap/lego/common/.lego
     plugs:
-      - dot-lego
       - network-bind
 
 parts:
