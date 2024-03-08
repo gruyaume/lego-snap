@@ -1,0 +1,4 @@
+#!/bin/sh -e
+
+# Create .lego directory
+mkdir  "$SNAP_COMMON/.lego"
