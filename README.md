@@ -12,7 +12,6 @@ sudo snap connect lego:dot-lego
 sudo lego \
   --email="you@example.com" \
   --domains="example.com" \
-  --path=/var/snap/lego/common/.lego \
   --server=https://acme-staging-v02.api.letsencrypt.org/directory \
   --http \
   --http.port :8080 \

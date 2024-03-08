@@ -13,9 +13,8 @@ description: |
   `sudo snap install lego`
 
   `sudo snap connect lego:dot-lego`
-  `lego --email="you@example.com" --domains="example.com" --path=/var/snap/lego/common/.lego --server=https://acme-staging-v02.api.letsencrypt.org/directory --http --http.port :8080 run`
-
-  Note: The LEGO snap can only write to the `/var/snap/lego/common/.lego` directory.
+  
+  `sudo lego --email="you@example.com" --domains="example.com" --server=https://acme-staging-v02.api.letsencrypt.org/directory --http --http.port :8080 run`
 
 source-code: https://github.com/go-acme/lego
 issues: https://github.com/gruyaume/lego-snap/issues
@@ -26,6 +25,8 @@ confinement: strict
 apps:
   lego:
     command: bin/lego
+    environment:
+      LEGO_PATH: /var/snap/lego/common/.lego
     plugs:
       - network-bind
 
