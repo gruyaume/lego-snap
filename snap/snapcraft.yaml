@@ -4,16 +4,44 @@ version: 'v4.15.0'
 summary: A Let's Encrypt client.
 license: Apache-2.0
 description: |
-  LEGO is a Let's Encrypt client and ACME library written in Go. For more information, read the [official documentation](https://go-acme.github.io/lego/usage/).
+  LEGO is a Let's Encrypt client and ACME library written in Go.
+
+  ## Usage
+
+  ```bash
+  sudo snap install lego
+  sudo snap connect lego:dot-lego
+  lego \
+    --email="you@example.com" \
+    --domains="example.com" \
+    --path=/home/$USER/.lego \
+    --server=https://acme-staging-v02.api.letsencrypt.org/directory \
+    --http \
+    --http.port 8080 \
+    run
+  ```
+
+  Note: The LEGO snap can only write to the following directory:
+  - `/home/$USER/.lego`
+
 source-code: https://github.com/go-acme/lego
 issues: https://github.com/gruyaume/lego-snap/issues
 
 grade: stable
 confinement: strict
 
+plugs:
+  dot-lego:
+    interface: personal-files
+    write:
+      - $HOME/.lego
+
 apps:
   lego:
     command: bin/lego
+    plugs:
+      - dot-lego
+      - network-bind
 
 parts:
   lego:
