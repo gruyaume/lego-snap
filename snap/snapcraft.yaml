@@ -1,0 +1,27 @@
+name: lego
+base: core22
+version: 'v4.15.0'
+summary: A Let's Encrypt client.
+license: Apache-2.0
+description: |
+  LEGO is a Let's Encrypt client and ACME library written in Go. For more information, read the [official documentation](https://go-acme.github.io/lego/usage/).
+source-code: https://github.com/go-acme/lego
+issues: https://github.com/gruyaume/lego-snap/issues
+
+grade: stable
+confinement: strict
+
+apps:
+  lego:
+    command: bin/lego
+
+parts:
+  lego:
+    plugin: go
+    source: https://github.com/go-acme/lego
+    source-type: git
+    source-tag: v4.15.0
+    build-snaps:
+      - go/1.21/stable
+    build-environment:
+      - GO111MODULE: "on"
