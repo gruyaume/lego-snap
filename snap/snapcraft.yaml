@@ -10,11 +10,8 @@ description: |
 
   Usage:
 
-  `sudo snap install lego`
-
-  `sudo snap connect lego:dot-lego`
-  
-  `sudo lego --email="you@example.com" --domains="example.com" --server=https://acme-staging-v02.api.letsencrypt.org/directory --http --http.port :8080 run`
+  * `sudo snap install lego`
+  * `sudo lego --email="you@example.com" --domains="example.com" --server=https://acme-staging-v02.api.letsencrypt.org/directory --http --http.port :8080 run`
 
 source-code: https://github.com/go-acme/lego
 issues: https://github.com/gruyaume/lego-snap/issues

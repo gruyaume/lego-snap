@@ -8,7 +8,6 @@ The LEGO snap makes it easy to install and use LEGO on any Linux distribution th
 
 ```bash
 sudo snap install lego
-sudo snap connect lego:dot-lego
 sudo lego \
   --email="you@example.com" \
   --domains="example.com" \
