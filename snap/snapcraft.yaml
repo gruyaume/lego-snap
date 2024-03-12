@@ -1,6 +1,6 @@
 name: lego
 base: core22
-version: 'v4.16.0'
+version: 'v4.16.1'
 summary: A Let's Encrypt client.
 license: Apache-2.0
 description: |
@@ -32,7 +32,7 @@ parts:
     plugin: go
     source: https://github.com/go-acme/lego
     source-type: git
-    source-tag: v4.16.0
+    source-tag: v4.16.1
     build-snaps:
       - go/1.21/stable
     build-environment:
